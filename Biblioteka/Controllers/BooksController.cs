@@ -12,6 +12,8 @@ namespace Biblioteka.Controllers
     {
 
         private readonly ApplicationDbContext _db;
+        [BindProperty]
+        private Book Book { get; set; }
 
         public BooksController(ApplicationDbContext db)
         {
@@ -21,6 +23,22 @@ namespace Biblioteka.Controllers
         public IActionResult Index()
         {
             return View();
+        }
+
+        public IActionResult Upsert(int? id)
+        {
+            Book = new Book();
+            if(id == null)
+            {
+                return View(Book);
+            }
+
+            Book = _db.Books.FirstOrDefault(u => u.Id == id);
+            if(Book == null)
+            {
+                return NotFound();
+            }
+            return View(Book);
         }
 
         [HttpGet]
