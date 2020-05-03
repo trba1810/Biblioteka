@@ -1,7 +1,7 @@
 ﻿@model Biblioteka.Models.Book
 
 <br/>
-<h2 class="text-info">@(Model.Id!=0 ? "Edit" : "Create") Book</h2>
+<h2 class="text-info">@(Model.Id != 0 ? "Edit" : "Create") Book</h2>
 <br/>
 
 <div class="border container" style="padding:30px;">
@@ -41,7 +41,7 @@
         <div class="form-group row">
             <div class="col-3 offset-3">
                 <button type="submit" class="btn btn-primary form-control">
-                    @(Model.Id!=0 ? "Update" : "Create")
+                    @(Model.Id != 0 ? "Update" : "Create")
                 </button>
             </div>
             <div class="col-3">
